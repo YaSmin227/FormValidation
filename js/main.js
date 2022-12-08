@@ -130,3 +130,8 @@ function check_residence(frist_class, second_class) {
     $(`.${frist_class}`).css("display", "block");
     $(`.${second_class}`).css("display", "none");
 }
+
+// hide the validation error on change option (select2)
+$('.select2').on('change', function() {  
+    $(this).valid();    
+});
