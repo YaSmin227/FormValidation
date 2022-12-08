@@ -1,0 +1,134 @@
+body {
+    direction: rtl;
+    text-align: right;
+    background-color: #e5e5e5cf;
+}
+
+h1 {
+    color: #2ab9ac;
+    margin-top: 20px;
+}
+
+.step-tab-panel,
+.id_number_stranger,
+.outer {
+    display: none;
+}
+
+.step_one {
+    display: block;
+}
+
+label.error {
+    color: red;
+    font-size: 14px;
+}
+
+select,
+input {
+    width: 100%;
+    height: 40px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form_select2,
+.form-group {
+    position: relative;
+    height: 120px;
+    margin-bottom: 0rem !important;
+}
+
+.form_select2 label.error {
+    position: absolute;
+    top: 65%;
+    right: 10px;
+    z-index: 99;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 28px;
+    position: absolute;
+    top: 14px;
+    left: 9px;
+    color: #2ab9ac;
+    width: 22px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+    border-color: #444444c2 transparent transparent transparent;
+    margin-top: -4px;
+    width: 10px;
+    height: 10px;
+}
+
+.select2,
+.select2-container .select2-selection--single {
+    width: 100% !important;
+    height: 40px;
+    line-height: 33px !important;
+    padding-right: 0px !important;
+}
+
+input,
+.form-control,
+.select2-container--default .select2-selection--single {
+    border-radius: 30px;
+    padding: 10px 20px;
+    height: 50px;
+    border: none;
+    border: 1px solid #2ab9ac;
+    font-size: 14px;
+    color: #444444c2;
+}
+
+input[type="radio"] {
+    width: 15px;
+    height: auto;
+}
+
+.form-check.radio {
+    display: flex;
+    min-width: 87px;
+    justify-content: flex-end;
+}
+
+.form-check.radio label {
+    font-size: 14px;
+    font-size: 13px;
+    color: #444444c2;
+    font-weight: 600;
+}
+
+.control-label {
+    color: #2ab9ac;
+    font-weight: 600;
+}
+
+form {
+    background: #fff;
+    padding: 40px;
+    border-radius: 50px;
+    margin: 30px 0;
+}
+
+button {
+    background-color: #2ab9ac;
+    color: #fff;
+    border: 0px;
+    border-radius: 50px;
+    padding: 10px 30px;
+}
+
+input:focus,
+select:focus,
+button:focus {
+    outline: none;
+}
+
+/* media query */
+@media (max-width: 767px) {
+    .form_select2 {
+        height: 123px;
+    }
+}

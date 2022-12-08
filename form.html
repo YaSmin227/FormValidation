@@ -1,0 +1,333 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.steps@1.1.2/dist/jquery-steps.min.css">
+    <!-- select2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <!-- style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- title -->
+    <title>My Form</title>
+</head>
+
+<body>
+    <div class="container">
+        <!--start smartwizard section  -->
+        <div id="smartwizard" class="step-app">
+            <!-- Start Form -->
+            <h1 class="text-center">Form</h1>
+            <form action="" class="" method="post" id="form_data" role="form">
+                <!-- start frist step -->
+                <div class="step-tab-panel step_one" data-step="step1">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="legal_form">الشكل القانوني لصاحب المطالبة </label>
+                                <select class="form-control" name="legal_form" id="">
+                                    <option value="" disabled selected>الشكل القانوني لصاحب المطالبة</option>
+                                    <option value="normal">شخص طبيعي</option>
+                                    <option value="indvidual">مؤسسة فردية سعودية </option>
+                                    <option value="company">شركة سعودية </option>
+                                    <option value="establishment">مؤسسة أو جهة أو هيئة حكومية</option>
+                                    <option value="foreign">منشأة أو شركة اجنبية </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="creditor_name">اسم صاحب المطالبة <span>(الاسم
+                                        رباعي)</span></label>
+                                <input type="text" class="form-control" id="creditor_name" name="creditor_name"
+                                    required />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="identity_type">مكان صدور ونشأة الهوية </label>
+                                <select class="form-control"  id="" name="identity_type">
+                                    <option value="" disabled selected>مكان صدور ونشأة الهوية </option>
+                                    <option value="1"> سعودية</option>
+                                    <option value="2"> اجنبية </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="identity_country">تحديد دولة المنشأ <span>(لغير
+                                        السعودية )</span></label>
+                                <select class="select2 form-control" name="identity_country">
+                                    <option value="" disabled selected>دولة المنشأ</option>
+                                    <option value="1">مصري</option>
+                                    <option value="2">لبناني</option>
+                                    <option value="3">عراقي</option>
+                                    <option value="4">سوري</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="nationality">الجنسية</label>
+                                <select class="form-control" id="" name="nationality">
+                                    <option value="" disabled selected>الجنسية</option>
+                                    <option value="1"> سعودي</option>
+                                    <option value="2"> غير سعودي </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="nationality_not_saud">تحديد الجنسية <span>( لغير
+                                        السعودي)</span></label>
+                                <select class="select2 form-control" name="nationality_not_saud">
+                                    <option value="" disabled selected>الجنسية</option>
+                                    <option value="1">مصري</option>
+                                    <option value="2">لبناني</option>
+                                    <option value="3">عراقي</option>
+                                    <option value="4">سوري</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="id_type">نوع هوية الموظف</label>
+                                <select onchange="select_nationality(this)" class="form-control" id="id_type" name="id_type">
+                                    <option value="" disabled selected>نوع هوية الموظف</option>
+                                    <option value="1"> هوية وطنية (للسعوديين فقط) </option>
+                                    <option value="2"> هوية مقيم</option>
+                                    <option value="3"> جواز (للأجانب) </option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 id_number">
+                            <div class="form-group">
+                                <label class="control-label" for="id_number">رقم الهوية الوطنية </label>
+                                <input type="number" length="10"  class="" id="id_number"
+                                    name="id_number" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 id_number_stranger">
+                            <div class="form-group">
+                                <label class="control-label" for="id_number_stranger">رقم هوية مقيم</label>
+                                <input type="number"  class="" id="id_number_stranger"
+                                    name="id_number_stranger" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="passport_number">رقم الجواز</label>
+                                <input type="text" class="form-control" id="passport_number"
+                                    name="passport_number" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="job_id"> الرقم الوظيفي</label>
+                                <input type="number" class="" id="job_id" name="job_id" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="mobile">رقم الجوال / مفتاح المنطقة</label>
+                                <select class="select2 form-control" name="mobile">
+                                    <option value="" disabled selected>  رقم الجوال / مفتاح المنطقة</option>
+                                    <option value="1">mobile 1</option>
+                                    <option value="2">mobile 2</option>
+                                    <option value="3">mobile 3</option>
+                                    <option value="4">mobile 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="smobile"> رقم الجوال الأساسي</label>
+                                <input  type="number" class="form-control" id="smobile" name="smobile"
+                                    placeholder=" ××××××××5" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="additional_mobile"> رقم الجوال الاضافي / مفتاح
+                                    المنطقة</label>
+                                <select class="select2 form-control" name="additional_mobile">
+                                    <option value="" disabled selected>  رقم الجوال الاضافي / مفتاح المنطقة </option>
+                                    <option value="1">mobile 1</option>
+                                    <option value="2">mobile 2</option>
+                                    <option value="3">mobile 3</option>
+                                    <option value="4">mobile 4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="sadditional_mobile"> رقم الجوال الاضافي</label>
+                                <input type="number" class="form-control" id="sadditional_mobile"
+                                    name="sadditional_mobile" placeholder="××××××××5" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="email"> البريد الالكتروني</label>
+                                <input type="email" class="form-control" id="email" name="email" />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label" for="additional_email"> البريد الالكتروني إضافي</label>
+                                <input type="email" class="form-control" id="additional_email" name="additional_email" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button data-step-action="next" class="step-btn next" type="button">التالي</button>
+                    </div>
+                </div>
+                <!-- start second step -->
+                <div class="step-tab-panel step_two" data-step="step2">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="control-label" for="creditor_residency"> مقر اقامة صاحب المطالبة</label>
+                                <div class="d-flex justify-content-around mt-3">
+                                    <div class="form-check radio">
+                                        <input class="form-check-input" type="radio" name="residence" id="inside" checked onclick="check_residence('inner','outer')">
+                                        <label class="form-check-label" for="inside">
+                                            داخل السعودية
+                                        </label>
+                                    </div>
+                                    <div class="form-check radio">
+                                        <input class="form-check-input" type="radio" name="residence" id="outside" onclick="check_residence('outer','inner')">
+                                        <label class="form-check-label" for="outside" >
+                                           خارج السعودية
+                                        </label>
+                                    </div>
+                                </div>
+                                <!-- <select onchange="select_residence()" class="form-control" id="creditor_residency" name="creditor_residency">
+                                    <option value="" disabled selected>  مقر اقامة صاحب المطالبة</option>
+                                    <option value="in"> داخل المملكة </option>
+                                    <option value="out">  خارج المملكة </option>
+                                </select> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 inner">
+                            <div class="form-group">
+                                <label class="control-label" for="building_number"> رقم المبني</label>
+                                <input type="number" class="form-control" id="building_number" name="building_number" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 inner">
+                            <div class="form-group">
+                                <label class="control-label" for="street_name"> اسم الشارع</label>
+                                <input type="text" class="form-control" id="street_name" name="street_name" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 inner">
+                            <div class="form-group">
+                                <label class="control-label" for="district"> الحي</label>
+                                <input type="text" class="form-control" id="district" name="district" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 inner">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="city"> المدينة</label>
+                                <select class="select2 form-control" name="city">
+                                    <option value="" disabled selected> المدينة </option>
+                                    <option value="1"> الرياض</option>
+                                    <option value="2"> جدة</option>
+                                    <option value="3"> الخبر</option>
+                                    <option value="4"> مكة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 inner">
+                            <div class="form-group">
+                                <label class="control-label" for="postal_code"> الرمز البريدي </label>
+                                <input type="number" class="form-control" id="postal_code" name="postal_code" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 inner">
+                            <div class="form-group">
+                                <label class="control-label" for="inner_additional_number"> الرقم الإضافي </label>
+                                <input type="number" class="form-control" id="inner_additional_number"
+                                    name="inner_additional_number" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 outer">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="country"> اسم الدولة محل الإقامة</label>
+                                <select class="select2 form-control" name="country">
+                                    <option value="" disabled selected> اسم الدولة محل الإقامة </option>
+                                    <option value="1"> مصر</option>
+                                    <option value="2"> لبنان</option>
+                                    <option value="3"> الجزائر</option>
+                                    <option value="4"> العراق</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 outer">
+                            <div class="form-group form_select2">
+                                <label class="control-label" for="outer_city"> اسم المدينة</label>
+                                <select class="select2 form-control" name="outer_city">
+                                    <option value="" disabled selected> اسم المدينة </option>
+                                    <option value="1"> city1</option>
+                                    <option value="2"> city2</option>
+                                    <option value="3"> city3</option>
+                                    <option value="4"> city4</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6 outer">
+                            <div class="form-group">
+                                <label class="control-label" for="outer_street"> اسم الشارع </label>
+                                <input type="text" class="form-control" id="outer_street" name="outer_street" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 outer">
+                            <div class="form-group">
+                                <label class="control-label" for="po"> الرمز البريدي </label>
+                                <input type="text" class="form-control" id="po" name="po" />
+                            </div>
+                        </div>
+                        <div class="col-md-6 outer">
+                            <div class="form-group">
+                                <label class="control-label" for="additional_data"> بيانات إضافية </label>
+                                <input type="text" class="" id="additional_data" name="additional_data" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button data-step-action="prev" class="step-btn Previous" type="button">السابق</button>
+                        <button data-step-action="finish" class="step-btn finish" type="button">تسجيل</button>
+                    </div>
+                </div>
+                <!-- start third step -->
+                <div class="step-tab-panel step_three text-center" data-step="step3">
+                    <h1 class="text center">
+                        Your Data Submitted Successfully
+                    </h1>
+                    <button data-step-action="prev" class="step-btn Previous mt-2" type="button">مطالبة جديدة</button>
+                </div>
+            </form>
+            <!-- End Form -->
+        </div>
+        <!--end smartwizard section  -->
+    </div>
+
+    <!-- jquery -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- jquery validation -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+    <!-- select2 -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- main js -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
